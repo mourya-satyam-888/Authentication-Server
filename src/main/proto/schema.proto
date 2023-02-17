@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package com.authentication;
+
+option java_multiple_files=true;
+
+message AuthenticationRequest{
+  string username=1;
+  string password=2;
+}
+
+message AuthenticationResponse{
+  string jwtToken=1;
+}
+
+message CreateUserRequest{
+  string username=1;
+  string password=2;
+}
+message CreateUserResponse{
+  string jwtToken=1;
+}
+service AuthenticationService{
+  rpc authenticateUser(AuthenticationRequest) returns(AuthenticationResponse){};
+}
+service CreateUserService{
+  rpc createUser(CreateUserRequest)returns(CreateUserResponse){};
+}
