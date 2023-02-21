@@ -30,6 +30,8 @@ public class AuthenticationServiceController extends
       responseObserver.onCompleted();
     } catch (BadCredentialsException e) {
       responseObserver.onError(Status.UNAUTHENTICATED.asRuntimeException());
+    } catch (Exception e) {
+      responseObserver.onError(Status.INTERNAL.asRuntimeException());
     }
   }
 }

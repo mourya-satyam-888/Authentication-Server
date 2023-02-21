@@ -29,6 +29,8 @@ public class CreateUserServiceController extends CreateUserServiceGrpc.CreateUse
       responseObserver.onCompleted();
     } catch (ResourceException e) {
       responseObserver.onError(Status.ALREADY_EXISTS.asRuntimeException());
+    } catch (Exception e) {
+      responseObserver.onError(Status.INTERNAL.asRuntimeException());
     }
   }
 }
