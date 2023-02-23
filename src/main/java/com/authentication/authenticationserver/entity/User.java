@@ -1,6 +1,8 @@
 package com.authentication.authenticationserver.entity;
 
 
+import com.authentication.authenticationserver.util.EncryptionUtils;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -31,6 +33,7 @@ public class User {
   /**
    * The Username.
    */
+  @Convert(converter = EncryptionUtils.class)
   private String username;
   /**
    * The Password.
