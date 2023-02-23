@@ -17,3 +17,5 @@ server:
   port: 8080
 jwt:
   secret: "[B@7344699f"
+keystore:
+  password: "12345678"
